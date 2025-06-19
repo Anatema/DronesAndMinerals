@@ -12,7 +12,9 @@ public class MapSettingsUI : MonoBehaviour
     [SerializeField] private TMP_InputField _resourcesSpeedInputField;
     [SerializeField] private Toggle _showPathToggle;
     private GameSettings _settings;
-    public void Awake()
+    
+    
+    public void Start()
     {
         if (!GameSettings.Instance)
         {
@@ -20,9 +22,6 @@ public class MapSettingsUI : MonoBehaviour
             return;
         }
         _settings = GameSettings.Instance;
-    }
-    public void Start()
-    {
         _droneSpeedSlider.value = _settings.GlobalSpeed;
         _resourcesSpeedInputField.text = _settings.ResourceSpawnSpeed.ToString();
         _showPathToggle.isOn = _settings.IsDrawPath;
